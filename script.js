@@ -26,3 +26,18 @@ window.addEventListener('scroll', () => {
     ? '0 4px 16px rgba(0,0,0,.12)'
     : '0 1px 3px rgba(0,0,0,.08)';
 });
+
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-question').forEach(b => {
+      b.classList.remove('open');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.classList.add('open');
+      answer.classList.add('open');
+    }
+  });
+});
